@@ -1,0 +1,358 @@
+<!DOCTYPE html><html class="dark" lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Exasol - 세계에서 가장 빠른 분석용 데이터베이스</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-card": "#0A1A21",
+                        "on-secondary": "#0e3445",
+                        "text-dim": "#8A9EA6",
+                        "surface-dim": "#0c1510",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#e4c54a",
+                        "outline": "#849589",
+                        "surface-tint": "#00e296",
+                        "secondary-fixed": "#c4e8fd",
+                        "inverse-surface": "#dbe5dc",
+                        "tertiary-fixed": "#ffe173",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#001e2b",
+                        "secondary-fixed-dim": "#a8cbe0",
+                        "on-primary-fixed-variant": "#005233",
+                        "on-surface-variant": "#b9cbbd",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#97bace",
+                        "tertiary": "#fffbff",
+                        "surface": "#0c1510",
+                        "inverse-on-surface": "#29332c",
+                        "tertiary-container": "#ffde61",
+                        "surface-container-low": "#141e18",
+                        "on-tertiary-fixed": "#221b00",
+                        "background": "#0c1510",
+                        "outline-variant": "#3a4a40",
+                        "on-secondary-fixed-variant": "#284b5c",
+                        "primary": "#f6fff6",
+                        "on-primary-container": "#007149",
+                        "on-primary": "#003822",
+                        "surface-bright": "#323b35",
+                        "secondary-container": "#284b5c",
+                        "primary-fixed-dim": "#00e296",
+                        "primary-container": "#00ffaa",
+                        "inverse-primary": "#006c46",
+                        "on-surface": "#dbe5dc",
+                        "on-primary-fixed": "#002112",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "chart-blue": "#0091FF",
+                        "surface-deep": "#050B0D",
+                        "primary-fixed": "#4dffb1",
+                        "surface-variant": "#2d3731",
+                        "on-background": "#dbe5dc",
+                        "surface-container-highest": "#2d3731",
+                        "on-tertiary": "#3b2f00",
+                        "surface-container-lowest": "#07100b",
+                        "on-tertiary-container": "#756100",
+                        "surface-container-high": "#232c26",
+                        "chart-line": "#1E3A47",
+                        "secondary": "#a8cbe0",
+                        "surface-container": "#18221c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "stack-lg": "48px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-hero-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-hero-mobile": ["40px", { "lineHeight": "1.1", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-effect {
+            box-shadow: 0px 0px 20px rgba(0, 255, 170, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface-deep text-on-surface font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 border-b border-outline-variant/30 flat no shadows">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<div class="flex items-center h-full">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6TUZeXxUIGo8XIC6VZkeoUG0DY-4-1lBDEc5eN-bH-yMwYnFvaYDRDS3U9jh1aB0cn6MMNqv4tqrWGHLpAWiy1Ub8y-5sBLyp0px-S8SIBmlwZWlmwxZyFIVJJyZnalUt3nrxqhkL3-wlh-x9aDNp6YxF6eWMRyfcO5geORJSUixWVdT4mD1xTiS0Fp2hKamKZ5SFGXRHJJhvCIWICiW8Mw6OUGWTzecrhHjr2w7G9YJNPttGpGiUsPlXOMwDQObJJg" alt="Exasol Logo" class="h-8 md:h-10 w-auto object-center">
+</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary hover:bg-primary-container/10 dark:hover:bg-primary-container/10 transition-all duration-200 py-2" href="#">Performance</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-primary-container/10 dark:hover:bg-primary-container/10 transition-all duration-200 py-2" href="#">Platform</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-primary-container/10 dark:hover:bg-primary-container/10 transition-all duration-200 py-2" href="#">AI</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-primary-container/10 dark:hover:bg-primary-container/10 transition-all duration-200 py-2" href="#">Customers</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-primary-container/10 dark:hover:bg-primary-container/10 transition-all duration-200 py-2" href="#">Company</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="hidden md:inline-flex items-center justify-center border border-outline px-4 py-2 rounded font-label-caps text-label-caps text-on-surface hover:text-primary hover:border-primary transition-colors" href="#">
+                    Contact Sales
+                </a>
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container px-4 py-2 rounded font-label-caps text-label-caps hover:bg-primary-fixed transition-colors" href="#">
+                    Get Started
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-40 mix-blend-screen bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida/AEtjO1XhuZz5TcHRPel4XCzE3Rj-V6SUdp2DTKZdduKiFs9AdMYZf2EFO89xErXdbKYpa_AT4srUEG2O5JwdJ49FCp-gL-iGiwIFBr3BVAqcjTkyBtrSKOWUzTwksjwxt4HMLBQPgtxdrWJAD9o-5otnFWAOvTbUJKEe3762Q7Po1zX_F8uGSrVnaN_EehKU4K0Yl0-mqTBsUNwuomLUcKG_IkkjCMOvV0kEhWmSqhQ6vlZm4Yp9ZpHrOos5bg&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface-deep/80 to-surface-deep z-0"></div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter text-center flex flex-col items-center">
+<span class="inline-flex items-center gap-2 bg-primary-container/10 text-primary-container px-3 py-1 rounded-full border border-primary-container/30 font-label-caps text-label-caps mb-8 backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                    VELOCITY PERFORMANCE SYSTEM
+                </span>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary max-w-4xl mx-auto mb-stack-md drop-shadow-lg">
+                    세계에서 가장 빠른&nbsp;<div class="">분석용 데이터베이스, Exasol
+                </div></h1>
+<p class="font-body-lg text-body-lg text-text-dim max-w-2xl mx-auto mb-stack-lg leading-relaxed">
+                    오라클 DB 대비 최대 100배 빠른 성능.&nbsp;</p><div class="">유지보수는 줄이고, 지능형 데이터 처리에 집중하십시오.&nbsp;</div><div class="">AI시대 데이터 벨로시티의 새로운 표준.
+                </div><p class=""></p>
+<div class="flex flex-col sm:flex-row gap-stack-md justify-center w-full sm:w-auto">
+<a class="inline-flex items-center justify-center bg-primary-container text-surface-deep px-8 py-4 rounded font-label-caps text-label-caps hover:bg-primary-fixed transition-colors min-w-[200px] mt-12" href="#">문의하기
+                    </a>
+
+</div>
+</div>
+</section>
+<!-- Performance Comparison Section -->
+<section class="py-stack-lg bg-surface-deep relative md:py-[120px]">
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-md">
+                            압도적인 성능 차이:<br>Exasol vs Oracle
+                        </h2>
+<p class="font-body-md text-body-md text-text-dim mb-stack-lg">
+                            복잡한 OLAP 환경에서 Exasol은 기존 레거시 시스템 대비 독보적인 속도를 제공합니다.
+                        </p>
+<div class="space-y-stack-md">
+<div class="flex items-start gap-4 p-4 rounded-lg bg-surface-card border border-chart-line">
+<div class="p-2 rounded bg-primary-container/10 text-primary-container">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary-fixed text-lg mb-1">No Manual Tuning</h3>
+<p class="font-body-md text-body-md text-text-dim text-sm">오라클처럼 복잡한 인덱싱이나 파티셔닝이 필요 없는 자동 자가 튜닝 엔진.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-lg bg-surface-card border border-chart-line">
+<div class="p-2 rounded bg-primary-container/10 text-primary-container">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary-fixed text-lg mb-1">TCO 절감</h3>
+<p class="font-body-md text-body-md text-text-dim text-sm">하드웨어 풋프린트를 줄여 전체 비용의 65% 이상 절감.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden border border-chart-line glow-effect bg-surface-card">
+<img alt="Exasol Performance Chart" class="w-full h-auto object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1XagXXtiXs6gzjiHhrTjSNjU_pawRRG292DSxvvPaLeOUmjlVWNPWhF7PMhmd3AnRol3VVuNAP7lBLURtZ4kBl06tVfBmIlmE8BfF_hPNrxEf7DNMDUoeDN9KymrdQu1sgOSBt78b9y8-nNNN_pG-qDzAz5PAi1pUklqh6KtOLSrNJ3q8R4uHYeXfLk-B43-vkEZOuG-dvPh_Ge5fcs9HGdUvzXHb-82bWd_SVB4VX8FunIqlnfVEeRVa0">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-6 flex justify-between items-end">
+<div>
+<span class="font-data-mono text-data-mono text-text-dim block mb-1">QUERY EXECUTION TIME</span>
+<span class="font-headline-lg text-headline-lg text-primary-container">100x Faster</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-4xl">speed</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI & Machine Learning Bento Grid -->
+<section class="py-stack-lg bg-surface relative overflow-hidden border-y border-outline-variant/20 md:py-[120px]">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/5 to-transparent blur-3xl pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-stack-lg">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-sm">
+                        데이터가 있는 곳에서 바로 실행되는 AI
+                    </h2>
+<p class="font-body-md text-body-md text-text-dim">
+                        데이터 이동 없이 DB 내부(UDF)에서 Python, R, Java 모델을 직접 실행하십시오.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-md auto-rows-[300px]">
+<!-- Bento Item 1: Large Image -->
+<div class="md:col-span-8 rounded-xl overflow-hidden border border-chart-line relative group">
+<img alt="AI and Database Integration" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AEtjO1V6AF-fSrwZhgnfN237Bpo_oaO3fFPernHmJIsI_jLm_x4uF7EKdiIwVrnM4XauCHL2XKOL_eu7YklKeUDkpbL1H-eXAde6BZTaDHqTZBqqYidBf_lwjEDiq_ytUmmS5pABrnFLCKPRj8liYDWIyzo97T3ZM4VIY76HY-MukztMqUVj6-AiODTVkPCfW945W3nDCpiZiWDqgrmFtr_dccOw_z4ALWngdShtOMOrx-dpu5QVb3DPcuR5yu0">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-deep/90 via-surface-deep/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="inline-block px-2 py-1 bg-primary/10 text-primary-fixed font-label-caps text-label-caps rounded mb-3 border border-primary/20 backdrop-blur-sm">NATIVE UDF</span>
+<h3 class="font-headline-md text-headline-md text-primary">In-Database Analytics</h3>
+</div>
+</div>
+<!-- Bento Item 2: Code Snippet / Technical -->
+<div class="md:col-span-4 rounded-xl border border-chart-line bg-surface-card p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4 border-b border-outline-variant/30 pb-2">
+<span class="font-data-mono text-data-mono text-text-dim">Terminal</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+</div>
+</div>
+<div class="font-data-mono text-data-mono text-primary-fixed/80 text-xs leading-loose opacity-80">
+                                &gt; CREATE SCRIPT python_model<br>
+                                &gt; LANGUAGE PYTHON AS<br>
+                                &gt; import pandas as pd<br>
+                                &gt; from sklearn import rf<br>
+                                &gt; ...<br>
+<span class="text-text-dim">&gt; Execution complete: 0.04s</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-dim text-sm">
+                            Zero data movement. Execute complex models where your data lives.
+                        </p>
+</div>
+<!-- Bento Item 3: Secondary Image -->
+<div class="md:col-span-12 lg:col-span-12 rounded-xl overflow-hidden border border-chart-line relative h-[200px] md:h-auto group">
+<img alt="dbt and Exasol" class="w-full h-full object-cover opacity-60 group-hover:opacity-90 transition-all duration-700 object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1Xt4zxMZ3I6B6KKBjje8wLNAZhWdCVVAFCkNlK-Jd_AgOsOBxfdR_OKSqmAiKhgtLSaHkp_pjjrgGmz7P7wvAFq1q1y6Be0iadCkHRhSERRCrY4Sb1WM_EV6tVaIfbvfyipokRvhZBOA68mn3LChWTQCQqR7qHmgIdNandW91g3P24vNA7TNI_LvGYKKd4C7T7wJfOFNMVnukAsX5TCUTt9X-UgF6ZMCPhUCODIQI3bAk5G4NAKl8wnP9w">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-deep/90 to-transparent"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-center max-w-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Seamless Integration</h3>
+<p class="font-body-md text-body-md text-text-dim text-sm">Ecosystem 호환성 확보. 최신 데이터 스택과 완벽하게 통합됩니다.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Customer Success Stories -->
+<section class="py-stack-lg bg-surface-deep md:py-[120px]">
+<div class="max-w-container-max mx-auto px-gutter">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center mb-stack-lg">
+                    글로벌 리더들의 선택
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<!-- Medion -->
+<div class="rounded-xl border border-chart-line bg-surface-card overflow-hidden flex flex-col group hover:border-primary/50 transition-colors">
+<div class="h-48 overflow-hidden relative">
+<img alt="Medion Success Story" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WYxH9arwefK0T6_vm1GlHKlVwLp7hO0tXtjTWs9rZyNB7fgxlgY3sYeOP557bUeP2zleONUbLbsA2wpEuQ2rxvpcf--J0ZxSVa1YumhyQ3FSrovvrH1WzgNixTWnwL_3tkRZARBN9hKNl0DjtSXVvc-bMUQ5PFiEyJe0q52trsEq6iPBfhHS0SMUrCnJHqec01Tz8VROzKYC43LB7nJDdaesQ4HanwCoiYRuCq0b1a8aTog_XL-3vaLE8">
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary text-xl mb-2">Medion</h3>
+<p class="font-body-md text-body-md text-text-dim text-sm flex-grow mb-4">리테일 데이터 분석의 한계 돌파</p>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-data-mono text-data-mono text-primary-container text-lg font-bold">164x</span>
+<span class="font-label-caps text-label-caps text-text-dim">빠른 보고서 생성</span>
+</div>
+</div>
+</div>
+<!-- Cineplexx -->
+<div class="rounded-xl border border-chart-line bg-surface-card overflow-hidden flex flex-col group hover:border-primary/50 transition-colors">
+<div class="h-48 overflow-hidden relative">
+<img alt="Cineplexx Success Story" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WByPuvWHaWYvIjitRtHQRG56BLT_GzUnX7FAnV7O4W0i4myZmvmJLiC5newguewrQowTsSoI2TOrCIJO-n8enQPXVOdDVgP0Yq4OXVshP7b2flIy2S35UjGn_-QHrhKvvy494D0kTDctnCY4X2lKg-I0Sg0YcOvymNohxNPtho6rzXgeWXWUCKCSFwhxgYigS56INhbERVT8UJywTvFvIjcC3o0EPmoK9z4rOVmVkH7RiZoNqvAkBqe1g">
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary text-xl mb-2">Cineplexx</h3>
+<p class="font-body-md text-body-md text-text-dim text-sm flex-grow mb-4">실시간 티켓팅 및 고객 행동 분석 최적화</p>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-data-mono text-data-mono text-primary-container text-lg font-bold">Zero</span>
+<span class="font-label-caps text-label-caps text-text-dim">다운타임</span>
+</div>
+</div>
+</div>
+<!-- Labor Berlin -->
+<div class="rounded-xl border border-chart-line bg-surface-card overflow-hidden flex flex-col group hover:border-primary/50 transition-colors">
+<div class="h-48 overflow-hidden relative">
+<img alt="Labor Berlin Success Story" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1UDTPOPnIEPLr1BqNcDLlo0fRXZpbARBOFOdk1mhDdlcxRA_Jvuc8rbAMzCBQwOPvtplE--VIerA_093JW0a26wScwBrdqx749WZGE80UCAcLDrHACPb6CqlJ3sIzMHKsC5eGaHM0EG_whMOfkt5VWtAxu7V8CAoTRvygEhYnwJFyYHA6P1dgrdXufDzArqhmXGDI-7K1auIbV1u0XdiCMu2RyCK2g4KxYg9HUFYTJCfd4pMmgUQLyQYSM">
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary text-xl mb-2">Labor Berlin</h3>
+<p class="font-body-md text-body-md text-text-dim text-sm flex-grow mb-4">대규모 의료 데이터 처리 가속화</p>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-data-mono text-data-mono text-primary-container text-lg font-bold">1,400%</span>
+<span class="font-label-caps text-label-caps text-text-dim">데이터 로드 개선</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-stack-lg md:py-[120px] bg-surface relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-primary-container/5 pointer-events-none"></div>
+<div class="max-w-3xl mx-auto px-gutter text-center relative z-10">
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary mb-stack-md">
+                    지금 바로 데이터의 한계를 넘어서십시오.
+                </h2>
+<a class="inline-flex items-center justify-center bg-primary-container text-surface-deep px-8 py-4 rounded font-label-caps text-label-caps hover:bg-primary-fixed transition-colors shadow-[0_0_30px_rgba(0,255,170,0.3)] hover:shadow-[0_0_40px_rgba(0,255,170,0.5)]" href="#">
+                    Exasol 문의하기<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-deep dark:bg-surface-deep border-t border-outline-variant/20 w-full py-stack-lg flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-gutter max-w-container-max mx-auto">
+<div><div class="flex items-center gap-4 mb-4"><div class="font-display-hero text-headline-md text-primary dark:text-primary-fixed"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ9Z__0gRJLWblcmlYj4n4FX1tos1_6aU_-vU1UxNRSv3fA53LNY_9YHP1vO6A-LhGbFWbfKKTZNFWlOeD_Bn2MnBeW8JJ9v7d-nc-fC1-Tyb6o3gl8GDt-uCEmxL6rII4hxEaEYuIazZi1qyRN4Gl7w9rk7_U9T2c3Z1y1ukD7ygoPf5s8Aa_mTP7aXhEmsOSshnHGNvaR1UTgZv9zP07E25iv7uMecPRzq35bH4FeA9sZtIrPUb-iELmTZLZqUj3wA" alt="bzplug" class="h-16 w-auto object-center"></div><div class="h-6 w-px bg-outline-variant/30"></div><div class="flex items-center gap-2"><span class="font-label-caps text-[30px] text-text-dim tracking-normal leading-none">Exasol 한국 공식 총판</span></div></div><p class="font-body-md text-2xl text-text-dim mb-1">한국에서는 비즈플러그가 함께합니다</p><p class="font-body-md text-body-md text-text-dim opacity-60 text-xs items-baseline">© 2024 Exasol AG. All rights reserved.</p></div>
+<div class="flex flex-wrap gap-4 md:justify-end items-center">
+<a class="font-label-caps text-label-caps text-text-dim hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-text-dim hover:text-primary-fixed transition-colors" href="#">Legal</a>
+<a class="font-label-caps text-label-caps text-text-dim hover:text-primary-fixed transition-colors" href="#">Cookie Settings</a>
+<a class="font-label-caps text-label-caps text-text-dim hover:text-primary-fixed transition-colors" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-text-dim hover:text-primary-fixed transition-colors" href="#">Documentation</a>
+</div>
+</div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
